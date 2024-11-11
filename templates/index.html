@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Reader with Question Generation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .spinner {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 6px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 6px solid #3498db;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload and Generate Questions from PDF</h1>
+        <form id="upload-form" method="POST" enctype="multipart/form-data">
+            <label for="file" class="custom-file-upload">Choose File</label>
+            <input type="file" name="file" id="file" accept=".pdf" required>
+            <span id="file-name" class="file-name">No file chosen</span>
+            
+            <!-- Dropdown for selecting grade -->
+            <label for="grade">Select Grade:</label>
+            <select name="grade" id="grade" required>
+                <option value="Below 6">Below 6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="University">University</option>
+            </select>
+            
+            <button type="submit">Upload PDF</button>
+        </form>
 
+        <!-- Loading spinner -->
+        <div class="spinner" id="spinner"></div>
+
+        {% if questions_with_answers %}
+        <h2>Generated Questions with Answer Keys:</h2>
+        <div class="questions">
+            <ul>
+            {% for item in questions_with_answers %}
+                <li>{{ item }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Show the spinner when the form is submitted
+        document.getElementById('upload-form').onsubmit = function() {
+            document.getElementById('spinner').style.display = 'block';
+        };
+
+        // Update file name display
+        document.getElementById('file').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+            document.getElementById('file-name').textContent = fileName;
+        });
+    </script>
+</body>
+</html>
+   
