@@ -35,3 +35,37 @@ GOOGLE_API_KEY = 'your-google-api-key-here'
 ```
 python app.py
 ```
+## Usage
+- Go to the upload page.
+- Select a PDF file that contains text-based notes or content.
+- Choose the grade level for which you want the questions to be generated.
+- Submit the form to generate and view the questions along with the answer key.
+
+## Project Structure
+
+```
+project-folder/
+├── app.py                 # Main Flask app code
+├── templates/
+│   └── index.html         # HTML template for upload form and results
+├── static/
+│   └── css/
+│       └── styles.css     # CSS file for styling
+├── uploads/               # Folder for uploaded PDF files
+├── README.md              # Project overview, setup, and usage
+├── requirements.txt       # List of required packages
+└── .
+```
+- app.py - Main Flask application logic.
+- templates/index.html - HTML form for uploading PDF and viewing questions.
+- static/css/styles.css - CSS styles for the web application.
+- uploads/ - Stores uploaded PDF files.
+- README.md - Project documentation.
+- requirements.txt - Required packages.
+
+## API Key Setup
+
+Make sure you have a valid Google Generative AI API key and configure it in app.py. You can get an API key by visiting the following link 'https://ai.google.dev/gemini-api/docs/api-key'
+
+## Example
+
