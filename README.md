@@ -71,3 +71,12 @@ Make sure you have a valid Google Generative AI API key and configure it in app.
 
 ![Logo](https://github.com/AzimMohideen/MCQ-Generator/blob/main/image.png)
 
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contributing
+- @Chorko C
+- @KRISHNASAKTHIESWAR
+- @bhrahmesh
+
