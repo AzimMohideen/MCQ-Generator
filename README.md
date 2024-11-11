@@ -69,3 +69,5 @@ Make sure you have a valid Google Generative AI API key and configure it in app.
 
 ## Example
 
+![Logo](https://github.com/AzimMohideen/MCQ-Generator/blob/main/image.png)
+
